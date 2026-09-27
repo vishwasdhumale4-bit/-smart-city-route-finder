@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart City Route Finder</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🗺️
+            </div>
+
+            <div>
+
+                <h2>
+                    Smart City
+                </h2>
+
+                <p>
+                    Route Finder
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                onclick="showPage('dashboard')">
+
+                🏠 Dashboard
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showPage('route')">
+
+                🚗 Find Route
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showPage('bfs')">
+
+                🔄 BFS Traversal
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showPage('dfs')">
+
+                🔍 DFS Traversal
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showPage('locations')">
+
+                📍 Locations
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showPage('roads')">
+
+                🛣️ Roads
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <small>
+                Data Structures Project
+            </small>
+
+            <small>
+                B.Tech Computer Science
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div>
+
+                <h1 id="page-title">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Smart City Route Finder
+                </p>
+
+            </div>
+
+
+            <div class="status">
+
+                <span></span>
+
+                System Online
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section
+            id="dashboard"
+            class="page active-page">
+
+
+            <div class="welcome">
+
+                <div>
+
+                    <div class="small-title">
+                        SMART CITY ROUTE FINDER
+                    </div>
+
+                    <h2>
+                        Find the Smartest<br>
+                        Route Through the City
+                    </h2>
+
+                    <p>
+                        A graph-based route finding system
+                        using BFS, DFS and Dijkstra's
+                        shortest path algorithm.
+                    </p>
+
+                    <button
+                        class="primary-btn"
+                        onclick="showPage('route')">
+
+                        Find Route
+
+                    </button>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    🗺️
+                </div>
+
+            </div>
+
+
+
+            <!-- STAT CARDS -->
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="card-icon blue">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Locations
+                        </p>
+
+                        <h3>
+                            6
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="card-icon green">
+                        🛣️
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Roads
+                        </p>
+
+                        <h3>
+                            6
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="card-icon purple">
+                        🧠
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Algorithms
+                        </p>
+
+                        <h3>
+                            3
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="card-icon orange">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Main Algorithm
+                        </p>
+
+                        <h3>
+                            Dijkstra
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MAP -->
+
+            <div class="section-card map-card">
+
+                <h2>
+                    City Map
+                </h2>
+
+                <p class="description">
+                    Graph visualization of city
+                    locations and roads.
+                </p>
+
+                <div id="map"></div>
+
+            </div>
+
+
+
+            <!-- ALGORITHMS -->
+
+            <div class="section-card">
+
+                <h2>
+                    Algorithms Used
+                </h2>
+
+                <p class="description">
+                    Data Structures and algorithms
+                    implemented in the project.
+                </p>
+
+
+                <div class="algorithm-grid">
+
+
+                    <div class="algorithm">
+
+                        <div class="algorithm-icon">
+                            🔄
+                        </div>
+
+                        <h3>
+                            BFS
+                        </h3>
+
+                        <p>
+                            Breadth First Search
+                            uses a queue to traverse
+                            the graph level by level.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="algorithm">
+
+                        <div class="algorithm-icon">
+                            🔍
+                        </div>
+
+                        <h3>
+                            DFS
+                        </h3>
+
+                        <p>
+                            Depth First Search uses
+                            recursion or stack to
+                            explore the graph.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="algorithm">
+
+                        <div class="algorithm-icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Dijkstra
+                        </h3>
+
+                        <p>
+                            Finds the shortest path
+                            between source and
+                            destination.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="algorithm">
+
+                        <div class="algorithm-icon">
+                            🕸️
+                        </div>
+
+                        <h3>
+                            Graph
+                        </h3>
+
+                        <p>
+                            Locations are vertices
+                            and roads are weighted
+                            edges.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FIND ROUTE ================= -->
+
+        <section
+            id="route"
+            class="page">
+
+
+            <div class="section-card">
+
+                <h2>
+                    Find Shortest Route
+                </h2>
+
+                <p class="description">
+                    Select the source and destination
+                    to find the route.
+                </p>
+
+
+
+                <div class="route-form">
+
+
+                    <!-- SOURCE -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Source Location
+                        </label>
+
+                        <select id="source">
+
+                            <option value="College">
+                                College
+                            </option>
+
+                            <option value="Market">
+                                Market
+                            </option>
+
+                            <option value="Hospital">
+                                Hospital
+                            </option>
+
+                            <option value="Bus Stand">
+                                Bus Stand
+                            </option>
+
+                            <option value="Railway Station">
+                                Railway Station
+                            </option>
+
+                            <option value="Airport">
+                                Airport
+                            </option>
+
+                        </select>
+
+                    </div>
+
+<div class="search-location-box">
+
+    <h3>Real Location Route</h3>
+
+    <p>
+        Enter two real locations to find the actual road route.
+    </p>
+
+    <!-- SOURCE -->
+
+    <div class="route-form">
+
+        <div class="form-group">
+
+            <label>Real Source Location</label>
+
+            <input
+                type="text"
+                id="realSource"
+                placeholder="Example: Bhugaon Pune"
+            >
+
+        </div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            onclick="searchRealSource()">
+
+            Search Source
+
+        </button>
+
+    </div>
+
+
+    <!-- DESTINATION -->
+
+    <div class="route-form">
+
+        <div class="form-group">
+
+            <label>Real Destination Location</label>
+
+            <input
+                type="text"
+                id="realDestination"
+                placeholder="Example: Pune Railway Station"
+            >
+
+        </div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            onclick="searchRealDestination()">
+
+            Search Destination
+
+        </button>
+
+    </div>
+
+
+    <!-- SEARCH RESULTS -->
+
+    <div
+        id="realSourceResult"
+        class="result-box">
+
+        Source location not selected.
+
+    </div>
+
+
+    <div
+        id="realDestinationResult"
+        class="result-box">
+
+        Destination location not selected.
+
+    </div>
+
+
+    <!-- FIND REAL ROUTE -->
+
+    <button
+        type="button"
+        class="primary-btn"
+        onclick="findRealRoadRoute()">
+
+        Find Real Road Route
+
+    </button>
+
+
+    <div
+        id="realRouteResult"
+        class="result-box">
+
+        Search source and destination first.
+
+    </div>
+
+</div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            onclick="searchRealLocation()">
+
+            Search Location
+
+        </button>
+
+    </div>
+
+    <div
+        id="locationSearchResult"
+        class="result-box">
+
+        Enter a location and click
+        "Search Location".
+
+    </div>
+
+</div>
+
+                    <!-- DESTINATION -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Destination
+                        </label>
+
+                        <select id="destination">
+
+                            <option value="Market">
+                                Market
+                            </option>
+
+                            <option value="College">
+                                College
+                            </option>
+
+                            <option value="Hospital">
+                                Hospital
+                            </option>
+
+                            <option value="Bus Stand">
+                                Bus Stand
+                            </option>
+
+                            <option value="Railway Station">
+                                Railway Station
+                            </option>
+
+                            <option value="Airport">
+                                Airport
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FIND BUTTON -->
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    onclick="findRoute()">
+
+                    Find Shortest Route
+
+                </button>
+
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="routeResult"
+                    class="result-box">
+
+                    <h3>
+                        Shortest Route
+                    </h3>
+
+                    <p>
+                        Select source and destination
+                        and click "Find Shortest Route".
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+<button
+    type="button"
+    class="primary-btn"
+    onclick="loadRealGraphData()">
+
+    Load Real Road Data
+
+</button>
+
+<div
+    id="realGraphResult"
+    class="result-box">
+
+    Click "Load Real Road Data" to calculate
+    real road distances.
+
+</div>
+
+        <!-- ================= BFS ================= -->
+
+        <section
+            id="bfs"
+            class="page">
+
+
+            <div class="section-card">
+
+                <h2>
+                    BFS Traversal
+                </h2>
+
+                <p class="description">
+                    Breadth First Search traversal
+                    using Queue.
+                </p>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Starting Location
+                    </label>
+
+                    <select id="bfs-start">
+
+                        <option>
+                            College
+                        </option>
+
+                        <option>
+                            Market
+                        </option>
+
+                        <option>
+                            Hospital
+                        </option>
+
+                        <option>
+                            Bus Stand
+                        </option>
+
+                        <option>
+                            Railway Station
+                        </option>
+
+                        <option>
+                            Airport
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    onclick="runBFS()">
+
+                    Run BFS
+
+                </button>
+
+
+                <div
+                    id="bfs-result"
+                    class="result-box">
+
+                    <h3>
+                        BFS Result
+                    </h3>
+
+                    <p>
+                        Select starting location
+                        and run BFS.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DFS ================= -->
+
+        <section
+            id="dfs"
+            class="page">
+
+
+            <div class="section-card">
+
+                <h2>
+                    DFS Traversal
+                </h2>
+
+                <p class="description">
+                    Depth First Search traversal
+                    using Stack / Recursion.
+                </p>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Starting Location
+                    </label>
+
+                    <select id="dfs-start">
+
+                        <option>
+                            College
+                        </option>
+
+                        <option>
+                            Market
+                        </option>
+
+                        <option>
+                            Hospital
+                        </option>
+
+                        <option>
+                            Bus Stand
+                        </option>
+
+                        <option>
+                            Railway Station
+                        </option>
+
+                        <option>
+                            Airport
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    onclick="runDFS()">
+
+                    Run DFS
+
+                </button>
+
+
+                <div
+                    id="dfs-result"
+                    class="result-box">
+
+                    <h3>
+                        DFS Result
+                    </h3>
+
+                    <p>
+                        Select starting location
+                        and run DFS.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LOCATIONS ================= -->
+
+        <section
+            id="locations"
+            class="page">
+
+
+            <div class="section-card">
+
+                <h2>
+                    City Locations
+                </h2>
+
+                <p class="description">
+                    Locations represented as graph
+                    vertices.
+                </p>
+
+
+                <div class="location-grid">
+
+
+                    <div class="location">
+
+                        <h3>
+                            📍 College
+                        </h3>
+
+                        <p>
+                            Main educational area
+                        </p>
+
+                    </div>
+
+
+                    <div class="location">
+
+                        <h3>
+                            🛒 Market
+                        </h3>
+
+                        <p>
+                            Shopping area
+                        </p>
+
+                    </div>
+
+
+                    <div class="location">
+
+                        <h3>
+                            🏥 Hospital
+                        </h3>
+
+                        <p>
+                            Healthcare center
+                        </p>
+
+                    </div>
+
+
+                    <div class="location">
+
+                        <h3>
+                            🚌 Bus Stand
+                        </h3>
+
+                        <p>
+                            Public transport
+                        </p>
+
+                    </div>
+
+
+                    <div class="location">
+
+                        <h3>
+                            🚆 Railway Station
+                        </h3>
+
+                        <p>
+                            Railway transport
+                        </p>
+
+                    </div>
+
+
+                    <div class="location">
+
+                        <h3>
+                            ✈️ Airport
+                        </h3>
+
+                        <p>
+                            Air transport
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ROADS ================= -->
+
+        <section
+            id="roads"
+            class="page">
+
+
+            <div class="section-card">
+
+                <h2>
+                    City Roads
+                </h2>
+
+                <p class="description">
+                    Weighted edges of the graph.
+                </p>
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                From
+                            </th>
+
+                            <th>
+                                To
+                            </th>
+
+                            <th>
+                                Distance
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                College
+                            </td>
+
+                            <td>
+                                Market
+                            </td>
+
+                            <td>
+                                4 km
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                College
+                            </td>
+
+                            <td>
+                                Bus Stand
+                            </td>
+
+                            <td>
+                                2 km
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Market
+                            </td>
+
+                            <td>
+                                Hospital
+                            </td>
+
+                            <td>
+                                3 km
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Market
+                            </td>
+
+                            <td>
+                                Railway Station
+                            </td>
+
+                            <td>
+                                5 km
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Bus Stand
+                            </td>
+
+                            <td>
+                                Railway Station
+                            </td>
+
+                            <td>
+                                4 km
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Railway Station
+                            </td>
+
+                            <td>
+                                Airport
+                            </td>
+
+                            <td>
+                                6 km
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= LEAFLET JS ================= -->
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+<!-- ================= YOUR JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
