@@ -1,4 +1,4 @@
-const MAPBOX_TOKEN = "pk.eyJ1IjoidmlzaHdhczEyMzQiLCJhIjoiY211aWF4MW9oMTh1bDJ5czU0bDJpamx0NyJ9.ldtO7g8hDYoJxQd6BHmU0";
+const MAPBOX_TOKEN = "pk.eyJ1IjoidmlzaHdhczEyMzQiLCJhIjoiY211aWF4MW9oMTh1bDJ5czU0bDJpamx0NyJ9.ldtO7g8hDYoJxQd6BHmU0g";
 
 let map;
 let markers = [];
