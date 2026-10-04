@@ -72,40 +72,11 @@
             </button>
 
 
-            <button
-                class="nav-item"
-                onclick="showPage('bfs')">
-
-                🔄 BFS Traversal
-
-            </button>
 
 
-            <button
-                class="nav-item"
-                onclick="showPage('dfs')">
-
-                🔍 DFS Traversal
-
-            </button>
 
 
-            <button
-                class="nav-item"
-                onclick="showPage('locations')">
 
-                📍 Locations
-
-            </button>
-
-
-            <button
-                class="nav-item"
-                onclick="showPage('roads')">
-
-                🛣️ Roads
-
-            </button>
 
         </nav>
 
@@ -182,7 +153,7 @@
 
                     <p>
                         A graph-based route finding system
-                        using BFS, DFS and Dijkstra's
+                        using Dijkstra's
                         shortest path algorithm.
                     </p>
 
@@ -205,98 +176,7 @@
 
 
 
-            <!-- STAT CARDS -->
-
-            <div class="cards">
-
-
-                <div class="card">
-
-                    <div class="card-icon blue">
-                        📍
-                    </div>
-
-                    <div>
-
-                        <p>
-                            Total Locations
-                        </p>
-
-                        <h3>
-                            6
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="card">
-
-                    <div class="card-icon green">
-                        🛣️
-                    </div>
-
-                    <div>
-
-                        <p>
-                            Total Roads
-                        </p>
-
-                        <h3>
-                            6
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="card">
-
-                    <div class="card-icon purple">
-                        🧠
-                    </div>
-
-                    <div>
-
-                        <p>
-                            Algorithms
-                        </p>
-
-                        <h3>
-                            3
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="card">
-
-                    <div class="card-icon orange">
-                        ⚡
-                    </div>
-
-                    <div>
-
-                        <p>
-                            Main Algorithm
-                        </p>
-
-                        <h3>
-                            Dijkstra
-                        </h3>
-
-                    </div>
-
-                </div>
-
-            </div>
+           
 
 
 
@@ -319,104 +199,6 @@
 
 
 
-            <!-- ALGORITHMS -->
-
-            <div class="section-card">
-
-                <h2>
-                    Algorithms Used
-                </h2>
-
-                <p class="description">
-                    Data Structures and algorithms
-                    implemented in the project.
-                </p>
-
-
-                <div class="algorithm-grid">
-
-
-                    <div class="algorithm">
-
-                        <div class="algorithm-icon">
-                            🔄
-                        </div>
-
-                        <h3>
-                            BFS
-                        </h3>
-
-                        <p>
-                            Breadth First Search
-                            uses a queue to traverse
-                            the graph level by level.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="algorithm">
-
-                        <div class="algorithm-icon">
-                            🔍
-                        </div>
-
-                        <h3>
-                            DFS
-                        </h3>
-
-                        <p>
-                            Depth First Search uses
-                            recursion or stack to
-                            explore the graph.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="algorithm">
-
-                        <div class="algorithm-icon">
-                            ⚡
-                        </div>
-
-                        <h3>
-                            Dijkstra
-                        </h3>
-
-                        <p>
-                            Finds the shortest path
-                            between source and
-                            destination.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="algorithm">
-
-                        <div class="algorithm-icon">
-                            🕸️
-                        </div>
-
-                        <h3>
-                            Graph
-                        </h3>
-
-                        <p>
-                            Locations are vertices
-                            and roads are weighted
-                            edges.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
 
         </section>
 
@@ -444,44 +226,6 @@
 
                 <div class="route-form">
 
-
-                    <!-- SOURCE -->
-
-                    <div class="input-group">
-
-                        <label>
-                            Source Location
-                        </label>
-
-                        <select id="source">
-
-                            <option value="College">
-                                College
-                            </option>
-
-                            <option value="Market">
-                                Market
-                            </option>
-
-                            <option value="Hospital">
-                                Hospital
-                            </option>
-
-                            <option value="Bus Stand">
-                                Bus Stand
-                            </option>
-
-                            <option value="Railway Station">
-                                Railway Station
-                            </option>
-
-                            <option value="Airport">
-                                Airport
-                            </option>
-
-                        </select>
-
-                    </div>
 
 <div class="search-location-box">
 
@@ -589,121 +333,18 @@
 
 </div>
 
-        <button
-            type="button"
-            class="primary-btn"
-            onclick="searchRealLocation()">
 
-            Search Location
-
-        </button>
-
-    </div>
-
-    <div
-        id="locationSearchResult"
-        class="result-box">
-
-        Enter a location and click
-        "Search Location".
-
-    </div>
+   
 
 </div>
 
-                    <!-- DESTINATION -->
-
-                    <div class="input-group">
-
-                        <label>
-                            Destination
-                        </label>
-
-                        <select id="destination">
-
-                            <option value="Market">
-                                Market
-                            </option>
-
-                            <option value="College">
-                                College
-                            </option>
-
-                            <option value="Hospital">
-                                Hospital
-                            </option>
-
-                            <option value="Bus Stand">
-                                Bus Stand
-                            </option>
-
-                            <option value="Railway Station">
-                                Railway Station
-                            </option>
-
-                            <option value="Airport">
-                                Airport
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
+                    
 
 
 
-                <!-- FIND BUTTON -->
-
-                <button
-                    type="button"
-                    class="primary-btn"
-                    onclick="findRoute()">
-
-                    Find Shortest Route
-
-                </button>
+             
 
 
-
-                <!-- RESULT -->
-
-                <div
-                    id="routeResult"
-                    class="result-box">
-
-                    <h3>
-                        Shortest Route
-                    </h3>
-
-                    <p>
-                        Select source and destination
-                        and click "Find Shortest Route".
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-<button
-    type="button"
-    class="primary-btn"
-    onclick="loadRealGraphData()">
-
-    Load Real Road Data
-
-</button>
-
-<div
-    id="realGraphResult"
-    class="result-box">
-
-    Click "Load Real Road Data" to calculate
-    real road distances.
-
-</div>
 
         <!-- ================= BFS ================= -->
 
