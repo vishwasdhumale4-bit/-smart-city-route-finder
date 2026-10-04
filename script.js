@@ -40,47 +40,9 @@ function initializeMap() {
 ).addTo(map);
 
 
-    // Add location markers
-
-    for (let name in locations) {
-
-        const marker = L.marker(
-            locations[name]
-        )
-        .addTo(map)
-        .bindPopup(
-            "<b>" + name + "</b><br>City Location"
-        );
-
-        markers.push(marker);
-    }
+    
 
 
-    // Draw demo graph roads
-
-    roads.forEach(function(road) {
-
-        const from = road[0];
-        const to = road[1];
-        const distance = road[2];
-
-        const line = L.polyline(
-            [
-                locations[from],
-                locations[to]
-            ],
-            {
-                weight: 3,
-                opacity: 0.5
-            }
-        )
-        .addTo(map)
-        .bindTooltip(
-            distance + " km"
-        );
-
-        roadLines.push(line);
-    });
 }
 
 
